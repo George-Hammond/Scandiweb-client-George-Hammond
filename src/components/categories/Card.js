@@ -6,9 +6,9 @@ class Card extends React.Component{
     render(){
         return(
             <div className="card-wrapper">
-                <img src={ Sweater } alt="Shirt" id="product-image"  />
-                <p id="product-name">Apollo Running Shorts</p>
-                <p id="product-price">$50.00</p>
+                <img src={ this.props.card.imageLink } alt="Shirt" id="product-image"  />
+                <p id="product-name">{this.props.card.productName}</p>
+                <p id="product-price">{this.props.card.productPrice}</p>
             </div>
         )
     }
