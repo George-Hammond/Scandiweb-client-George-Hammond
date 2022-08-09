@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  nav{
+    
+    height: 80px;
+    /* border: 2px solid red; */
+    
+  }
+  
+  .main-nav-container{
+    height: 56px;
+    width: 1145px;
+    margin: 24px 101px 0px 101px;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+  }
+  
+  .category-name ul{
+    display: flex;
+    /* border: 1px solid blue; */
+    justify-content: space-between;
+    width: 234px;
+    height: 56px;
+  }
+  
+  .category-name ul > li{
+    list-style-type: none;
+    font-family: 'Raleway', sans-serif;
+    border: none;
+    cursor: pointer;
+    /* border: 1px solid forestgreen; */
+    padding: 4px 16px 32px 16px;
+  }
+  
+  #emphasis{
+    border-bottom: 3px solid #5ECE7B;
+    color: #5ECE7B;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+  }
+  
+  .cart{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 204px;
+    height: 40px;
+    /* border: 1px solid purple; */
+  }
+  
+  
+  
+  #cart-logo {
+    width: 20px;
+    height: 20px;
+    margin-left: 22px;
+    cursor: pointer;
+  }
+  
+  #dollar-sign{
+    width: 12px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  #arrow-down{
+    height: 6px;
+    width: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
