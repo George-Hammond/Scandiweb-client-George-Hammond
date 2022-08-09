@@ -76,3 +76,67 @@
     margin-left: 10px;
     cursor: pointer;
   }
+
+  #category-heading{
+
+    height: 68px;
+    width: 299px;
+    margin-left: 101px;
+    margin-top: 80px; 
+    margin-bottom: 103px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 67px;
+    letter-spacing: 0px;
+    text-align: left;
+  
+  
+  }
+  
+  .card-wrapper{
+    /* border: 1px solid purple; */
+    width: 342px;
+    height: 390px;
+    margin-bottom: 103px;
+    /* margin-right: 40px; */
+  }
+  
+  .category-cardWrapper {
+    margin-left: 101px;  
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+    width: 1147px;
+    
+  }
+  
+  #product-image{
+    /* border: 1px solid blue; */
+    width: 310px;
+    height: 285px;
+    margin: 16px;
+  }
+  
+  #product-name{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin: 0px 16px 0px 16px;
+  
+  }
+  
+  #product-price{
+    margin-left: 16px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+  
+  }
