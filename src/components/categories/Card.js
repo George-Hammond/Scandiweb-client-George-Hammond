@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/index.css';
-import Sweater from '../images/sweater.svg'
+import '../../styles/index.css';
+import Sweater from '../../images/sweater.svg'
 
 class Card extends React.Component{
     render(){
