@@ -1,45 +1,25 @@
 import React from "react";
 import '../../styles/index.css';
-import Card from './Card';
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
+import CATEGORY_NAME from './cardQuery'
+import { Query } from  'react-apollo';
 
-const CARD_QUERY = gql`
-    {
-        cardsForHome {
-            id
-            imageLink
-            productName
-            productPrice
-        }
-    }
-`
-
-class Categories extends React.Component{
+class CategoryName extends React.Component{
     render(){
-        return(
-            <main>
-                <h2 id="category-heading" >Category name</h2>
-                <div className="category-cardWrapper">
-                    <Query query={CARD_QUERY} >
-                        {
-                            ({loading, error, data}) => {
-                                if(error) return <p>Error: ☹ {error.message} </p>;
+        return (
+            <Query query={CATEGORY_NAME}  >
+                    {
+                        ({loading, error, data}) => {
+                            if(loading) return <div>Loading...</div>;
 
-                                if(loading) return <p>Loading 💫</p>;
+                            if(error) return <div>Error: {error.message}</div>;
 
-                                return data.cardsForHome.map(card => (
-                                    <div>                                        
-                                         <Card key={card.id} card={card} />
-                                    </div>
-                                ))
-                            }                            
+                            
+                            return <h2 id="category-heading">{console.log(data.categories.name)}</h2>
                         }
-                    </Query>
-                </div>
-            </main>
+                    }
+                </Query>
         )
     }
 }
 
-export default Categories;
+export default CategoryName;

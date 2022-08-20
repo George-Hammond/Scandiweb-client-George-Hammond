@@ -1,6 +1,11 @@
 import React from 'react';
-import NavBar from './NavBar';
-import Categories from './categories/Categories';
+import NavBar from './navBar/NavBar';
+// import Categories from './categories/Categories';
+import All from './categories/all/All';
+import Tech from './categories/tech/Tech';
+import Clothes from './categories/clothes/Clothes';
+
+import { Router } from '@reach/router';
 
 
 class App extends React.Component{
@@ -8,7 +13,12 @@ class App extends React.Component{
     return (
       <main>  
         <NavBar />
-        <Categories />
+        {/* <Categories /> */}
+        <Router>
+          <All path="/" />
+          <Clothes path="clothes" />
+          <Tech path="tech" />
+        </Router>
       </main>      
     )
   }
