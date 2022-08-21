@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from './navBar/NavBar';
-// import Categories from './categories/Categories';
 import All from './categories/all/All';
 import Tech from './categories/tech/Tech';
 import Clothes from './categories/clothes/Clothes';
@@ -12,13 +11,12 @@ class App extends React.Component{
   render(){
     return (
       <main>  
-        <NavBar />
-        {/* <Categories /> */}
+        <NavBar />        
         <Router>
-          <All path="/" />
+          <All path="/"  />
           <Clothes path="clothes" />
           <Tech path="tech" />
-        </Router>
+        </Router> 
       </main>      
     )
   }
