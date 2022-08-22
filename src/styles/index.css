@@ -111,7 +111,8 @@
   }
   
   .card-wrapper{
-    /* border: 1px solid purple; */
+    /* border: 1px solid red;
+    background-color:green; */
     width: 342px;
     height: 390px;
     margin-bottom: 103px;
@@ -128,18 +129,37 @@
     
   }
 
+  .card-img-section{
+     /* border: 1px solid purple;  */
+     height: 320px;
+  }
+ 
+  /*#green-cart{
+    border: 1px solid orangered;
+  } */
+  #green-cart img{
+    /* border: 1px solid orangered; */
+    width: 32px;
+    height: 32px;
+    position: relative;
+    left: 272px;
+    top: -35px;
+    margin-bottom: -35px;
+  }
   .card-wrapper:hover{
     box-shadow: rgba(0, 0, 0, 0.30) 0px 5px 15px;
+    
   }
   
   #product-image{
     /* border: 1px solid blue; */
     width: 310px;
     height: 285px;
-    margin: 16px;
+    margin: 16px 16px 0px 16px ;
   }
   
   #product-name{
+    /* border: 1px solid blue; */
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     font-weight: 300;
