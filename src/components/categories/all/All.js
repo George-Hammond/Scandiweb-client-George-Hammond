@@ -16,11 +16,12 @@ class All extends React.Component{
            <>
            <Query query={ENTRYPOINT_CATEGORY} variables={{input: bigTitle}} >
                 {
-                    ({ error, data }) => {
-                        
+                    ({loading, error, data }) => {
+                        if(loading) return <div></div>;
                         if(error) return <div>Error: {error.message}</div>;
-                            
-                        return <CategoryName categoryName={data.category} />
+                        
+                        // console.log(data)
+                        return <CategoryName categoryName={data} />
                         }
                     }    
             </Query>     
@@ -34,7 +35,7 @@ class All extends React.Component{
                             
                             return(   
                                  
-                                data.category.products.map(cardData => (
+                                data.category.products.map(cardData => (                                    
                                   <Card key={cardData.id} cardData={cardData} />
                                 ))
                                                     

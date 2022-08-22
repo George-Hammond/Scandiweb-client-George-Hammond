@@ -14,10 +14,11 @@ class Clothes extends React.Component{
         <>
             <Query query={ENTRYPOINT_CATEGORY} variables={{input: bigTitle}}>
                 {
-                    ({error, data}) => {
+                    ({loading,error, data}) => {
+                        if(loading) return <div></div>;
                         if(error) return <div>Error... {error.message}</div>
 
-                        return <CategoryName categoryName={data.category} />
+                        return <CategoryName categoryName={data} />
                     }
                 }
             </Query>

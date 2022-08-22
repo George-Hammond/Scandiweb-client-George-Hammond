@@ -14,8 +14,8 @@ class App extends React.Component{
         <NavBar />        
         <Router>
           <All path="/"  />
-          <Clothes path="clothes" />
-          <Tech path="tech" />
+          <Clothes path="/clothes" />
+          <Tech path="/tech" />
         </Router> 
       </main>      
     )
