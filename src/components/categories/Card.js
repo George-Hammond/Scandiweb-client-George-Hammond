@@ -12,6 +12,7 @@ class Card extends React.Component{
         super(props)
         this.state = {
             isHovered: false,
+            productInCart: []
             
         }
 
@@ -37,7 +38,7 @@ class Card extends React.Component{
     //Handles event when green cart logo is clicked
     handleGreenCartClick(key){
         console.log(key)
-        alert(key)
+        
     }
     render(){
         

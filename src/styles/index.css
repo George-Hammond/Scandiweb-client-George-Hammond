@@ -145,6 +145,7 @@
     left: 272px;
     top: -35px;
     margin-bottom: -35px;
+    cursor: pointer;
   }
   .card-wrapper:hover{
     box-shadow: rgba(0, 0, 0, 0.30) 0px 5px 15px;
@@ -180,3 +181,116 @@
     text-align: left;
   
   }
+
+  /* Description Section */
+.product-page-section{
+  display: flex;
+  margin-left: 100px;
+  margin-top: 80px;
+}
+
+.different-product{
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+}
+.different-product img{  
+ width: 79px;
+ height: 80;
+ margin-bottom: 40px;
+}
+
+.large-product{
+  border: 1px solid saddlebrown;
+  margin-right: 100px;
+  width: 580px;
+  height: 511px;
+}
+
+.large-product img{
+  width: 580px;
+  height: 511px;
+}
+
+.description-section{
+  border: 1px solid green;
+  height: 595px;
+  width: 240px;
+
+}
+
+.description-section h1{
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 16px;
+
+}
+
+.description-section h2{
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 43px;
+}
+
+.size-section h3{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+
+}
+
+.size-category{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.size-category p{
+  border: 1px solid black;
+  padding: 13px 15px;
+  width: 53px;
+  /* height: 35px; */
+  text-align: center;
+}
+
+.color-section h3{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #1D1F22;
+}
+
+.color-section .colors{
+  display: flex;
+}
+
+.color-section .colors p{
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  margin-right: 8px;
+
+}
