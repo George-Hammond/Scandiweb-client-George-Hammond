@@ -34,9 +34,9 @@ class ProductPage extends React.Component{
                             <p></p>                        
                         </div>
                     </div>
-                    <div>
+                    <div className='price-section'>
                         <h3>Price:</h3>
-                        <p>$50</p>
+                        <p>$50.00</p>
                     </div>
                     <div className='add-to-cart'>
                         <button>
