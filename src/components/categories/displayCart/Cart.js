@@ -6,6 +6,7 @@ class Cart extends React.Component{
         return(
             <div className="cart-display-section">
                 <h1>Cart</h1>
+                <hr></hr>
                 <div className="cart-display-cart">
                     <div className="cart-attributes">
                         <h2>Apollo</h2>
@@ -43,8 +44,14 @@ class Cart extends React.Component{
                                 <button id="lesser">&gt;</button>
                                 <button id="greater">&lt;</button>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
+                </div>
+                <div className="card-attributes-bill">
+                    <p>Tax 21%:  <span id="card-attributes-tax"> $42.00</span></p>
+                    <p>Quantity: <span> 3</span></p>
+                    <p >Total: <span id="card-attributes-bill-total">$200.00</span></p>
+                    <button>Order</button>
                 </div>
             </div>    
         )

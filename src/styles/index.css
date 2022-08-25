@@ -396,10 +396,17 @@
   
   color: #1D1F22;
 }
+
+.cart-display-section hr{
+  background-color: #E5E5E5;
+  height: 2px;
+  border: none;
+}
 .cart-display-cart{
-  border-top: 2px solid #E5E5E5;
+  border-bottom: 2px solid #E5E5E5;
+  margin-bottom: 32px;
   width: 1145px;
-  height: 307px;
+  height: 338px;
   display: flex;
   justify-content: space-between;
 }
@@ -408,6 +415,7 @@
   width: 292px;
   height: 282px;
   margin-top: 25px;
+  
 }
 
 .cart-attributes h2{
@@ -602,4 +610,68 @@
   font-weight: 500;
   background: rgba(0, 0, 0, 0.73);
   transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.card-attributes-bill{
+  /* border: 1px solid pink; */
+  width: 279px;
+  height: 159px;
+  margin-bottom: 274px;
+}
+
+.card-attributes-bill p{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 8px;
+  /* identical to box height, or 117% */
+
+
+  color: #1D1F22;
+}
+
+.card-attributes-bill p span{
+  font-weight: 700;
+  margin-left: 7px;
+}
+
+#card-attributes-tax{
+  margin-left: 16px;
+}
+#card-attributes-bill-total{
+  margin-left: 44px;
+  
+}
+
+.card-attributes-bill button{
+  margin-top: 16px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+
+  width: 279px;
+  height: 43px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  /* identical to box height, or 17px */
+  
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  
+  /* --c-white */
+  
+  color: #FFFFFF;
+  /* --c-primary */
+
+  background: #5ECE7B;
 }
