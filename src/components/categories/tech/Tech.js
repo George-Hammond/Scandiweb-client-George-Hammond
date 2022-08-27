@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card";
 import CategoryName from "../Categories";
-import ENTRYPOINT_CATEGORY from "../cardQuery";
+import {ENTRYPOINT_CATEGORY} from "../cardQuery";
 import { Query } from 'react-apollo';
 
 
@@ -33,7 +33,10 @@ class Tech extends React.Component{
                             
                             return(    
                                 data.category.products.map(cardData => (
-                                  <Card key={cardData.id} cardData={cardData} />
+                                  <Card key={cardData.id} 
+                                  cardData={cardData} 
+                                  onClick={()=>this.props.getCardId(cardData.id)}
+                                  />
                                 ))
                                                     
                                 )

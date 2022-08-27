@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from '@reach/router';
 //import styles
 import '../../styles/index.css';
 // import Sweater from '../../images/sweater.svg'
@@ -12,13 +12,12 @@ class Card extends React.Component{
         super(props)
         this.state = {
             isHovered: false,
-            productInCart: []
-            
+            cartItems: []            
         }
 
         this.handleProductMouseEnter = this.handleProductMouseEnter.bind(this)
         this.handleProductMouseLeave = this.handleProductMouseLeave.bind(this)
-        this.handleGreenCartClick = this.handleGreenCartClick.bind(this)
+        this.addToCart = this.addToCart.bind(this)
     }
     
     //Handles event when mouse enters around a product card
@@ -36,37 +35,51 @@ class Card extends React.Component{
     }
 
     //Handles event when green cart logo is clicked
-    handleGreenCartClick(key){
-        console.log(key)
+    
+    addToCart(product){
+        const { cartItems } = this.state;
+        let newCartItems= []
+        console.log(cartItems)
+        console.log(product.id)
+        
+        const isProductPresent = cartItems.find(item =>item.id === product.id);
+        if(!isProductPresent){
+            newCartItems.push(product.name);
+            this.setState({
+                cartItems: newCartItems
+            })
+        }
+        console.log(cartItems)
+        
         
     }
     render(){
         
         return(
-            <div className='card-wrapper' 
-            >
+            <div className='card-wrapper' >
+                
                 <div 
                     className='card-img-section'
                     onMouseEnter={this.handleProductMouseEnter}
                     onMouseLeave={this.handleProductMouseLeave}                
                 >
-                    <img 
-                    src={this.props.cardData.gallery[0]} 
-                    alt="Shirt" 
-                    id="product-image"  
-                    
-                    
+                    <Link to={`/product/${this.props.cardData.id}`}>
+                    <img
+                        onClick={this.props.onClick}
+                        src={this.props.cardData.gallery[0]} 
+                        alt={this.props.cardData.name}
+                        id="product-image"      
                     />
-                   
+                   </Link>
                      {
 
                         this.state.isHovered ? 
                         <GreenCart key={this.props.cardData.id} 
-                        onClick={()=>this.handleGreenCartClick(this.props.cardData.id)} 
+                        addToCart={()=>this.addToCart(this.props.cardData)} 
                         /> : 
                         ''
 
-                    } 
+                    }                     
                 </div>
                 <p id="product-name">{this.props.cardData.name}</p>
                 <p id="product-price">

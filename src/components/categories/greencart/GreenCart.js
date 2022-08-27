@@ -8,7 +8,7 @@ class GreenCart extends React.Component{
         return(
             <div 
             id="green-cart"
-            onClick={this.props.onClick}
+            onClick={this.props.addToCart}
             > 
                 <img 
                 src={GreenCartSvg} 

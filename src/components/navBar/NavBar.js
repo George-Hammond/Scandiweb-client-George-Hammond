@@ -25,7 +25,7 @@ class NavBar extends React.Component{
                     <div className='cart'>
                         <img src={DollarSign} alt="Dollar sign" id="dollar-sign" />
                         <img src={ArrowDown} alt="more currencies" id="arrow-down" />
-                        <img src={Cart} alt="Cart" id="cart-logo" />
+                        <Link to="cart"><img src={Cart} alt="Cart" id="cart-logo"  /></Link>
                     </div>
                 </div>
             </nav>

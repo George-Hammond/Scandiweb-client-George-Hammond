@@ -3,7 +3,7 @@ import Card from '../Card';
 import CategoryName from "../Categories";
 import { Query } from  'react-apollo';
 // import { graphql } from "graphql";
-import ENTRYPOINT_CATEGORY from '../cardQuery'
+import {ENTRYPOINT_CATEGORY} from '../cardQuery'
 // import Categories from "../Categories";
 
 
@@ -12,8 +12,9 @@ const bigTitle = {
 }
 class All extends React.Component{
     render(){
+        const {getCardId} = this.props;
         return (
-           <>
+           <div className="appear disapper">
            <Query query={ENTRYPOINT_CATEGORY} variables={{input: bigTitle}} >
                 {
                     ({loading, error, data }) => {
@@ -36,7 +37,10 @@ class All extends React.Component{
                             return(   
                                  
                                 data.category.products.map(cardData => (                                    
-                                  <Card key={cardData.id} cardData={cardData} />
+                                  <Card key={cardData.id} 
+                                  cardData={cardData} 
+                                  onClick={()=>getCardId(cardData.id)} 
+                                  />
                                 ))
                                                     
                                 )
@@ -44,7 +48,7 @@ class All extends React.Component{
                         }
                 </Query>
             </div>
-          </>  
+          </div>  
         )
     }
 }

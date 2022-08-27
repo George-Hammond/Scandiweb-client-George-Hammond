@@ -1,27 +1,68 @@
 import gql from "graphql-tag";
 
 const ENTRYPOINT_CATEGORY = gql`
-  query Category($input: CategoryInput) {
-    category(input: $input) {
+query Query($input: CategoryInput) {
+  category(input: $input) {
+    name
+    products {
+      id
       name
-      products {
+      inStock
+      gallery
+      description
+      category
+      attributes {
         id
         name
-        gallery
-        category
-        prices {
-          currency {
-            symbol
-          }
-          amount
+        type
+        items {
+          displayValue
+          value
+          id
         }
       }
+      prices {
+        currency {
+          label
+          symbol
+        }
+        amount
+      }
+      brand
     }
   }
+}
+`
+const PRODUCT_SELECTION = gql`
+query Query($productId: String!) {
+  product(id: $productId) {
+    name
+    description
+    attributes {
+      id
+      name
+      type
+      items {
+        displayValue
+        value
+        id
+      }
+    }
+    prices {
+      currency {
+        symbol
+      }
+      amount
+    }
+    brand
+    gallery
+    id
+  }
+}
 `
 
 
 
 
 
-export default ENTRYPOINT_CATEGORY;
+export { ENTRYPOINT_CATEGORY, PRODUCT_SELECTION };
