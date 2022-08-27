@@ -3,12 +3,37 @@ import { Link } from '@reach/router';
 import '../../styles/index.css';
 import GreenBag from '../../images/green-bag.svg'
 import Cart from '../../images/cart.svg';
-import DollarSign from '../../images/dolloarSign.svg'
+// import DollarSign from '../../images/dolloarSign.svg'
 import ArrowDown from '../../images/arrowDown.svg'
-
+import CurrencyChange from '../currency/CurrencyChange';
+import { Query } from "react-apollo";
+import { CURRENCY_QUERY } from "../categories/cardQuery";
 
 class NavBar extends React.Component{
+
+    constructor(props){
+        super(props)
+        this.state = {
+            currencyAppear: false
+        }
+
+        this.toggleCurrencySymbol = this.toggleCurrencySymbol.bind(this)
+    }
+
+    toggleCurrencySymbol = () =>{
+        if(this.state.currencyAppear){
+          this.setState({
+            currencyAppear: false
+          })
+        }else{
+          this.setState({
+            currencyAppear: true
+          })
+        }
+        console.log(this.state.currencyAppear)
+      }
     render(){
+        let numbers = 0;
         return(
             <nav>
                 <div className="main-nav-container">
@@ -23,11 +48,21 @@ class NavBar extends React.Component{
                         <img src={GreenBag} alt="green bag logo" />
                     </div>
                     <div className='cart'>
-                        <img src={DollarSign} alt="Dollar sign" id="dollar-sign" />
-                        <img src={ArrowDown} alt="more currencies" id="arrow-down" />
+                        <Query query={CURRENCY_QUERY}>
+                            {
+                                ({loading, error, data}) => {
+                                    loading && <div>loading...</div>;
+                                    error && <div>Error :( {error.message}</div>
+                                    return (<p id="currency-symbol">{data.currencies[numbers].symbol}</p>)
+                                }
+
+                            }
+                        </Query>
+                        <img src={ArrowDown} alt="more currencies" id="arrow-down" onClick={this.toggleCurrencySymbol}/>
                         <Link to="cart"><img src={Cart} alt="Cart" id="cart-logo"  /></Link>
                     </div>
                 </div>
+                {this.state.currencyAppear && <CurrencyChange  />}
             </nav>
         )
     }

@@ -81,10 +81,23 @@
     cursor: pointer;
   }
   
-  #dollar-sign{
+  #currency-symbol{
     width: 12px;
     height: 20px;
     cursor: pointer;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    /* identical to box height, or 29px */
+    
+    display: flex;
+    align-items: flex-end;
+    
+    /* --c-black */
+    
+    color: #1D1F22;  
   }
   
   #arrow-down{
@@ -684,4 +697,55 @@
   /* --c-primary */
 
   background: #5ECE7B;
+}
+
+/* Currency selection section */
+
+.select-currency{
+  /* border: 1px solid lightseagreen; */
+  width: 114px;
+  position: absolute;
+  width: 114px;
+  /* height: 169px; */
+  left: 1148px;
+  top: 65px;
+  box-shadow: rgba(0, 0, 0, 0.30) 0px 5px 15px;
+  background: #FFFFFF;
+  /* height: 210px; */
+}
+
+.select-currency p{
+  text-align: center;
+  /* height: 45px; */
+  /* margin-top: 20px; */
+  cursor: pointer;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 160%;
+  /* identical to box height, or 29px */
+
+  
+
+  color: #1D1F22;
+}
+
+.select-currency p:hover{
+  background-color: #eee;
+
+}
+
+.currency-section{
+  /* border: 1px solid red; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#c-symbol{
+  text-align: center;
+}
+#c-label{
+  margin-left: 8px;
 }

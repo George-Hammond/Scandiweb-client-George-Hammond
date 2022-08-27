@@ -16,10 +16,13 @@ class App extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      id: 'huarache-x-stussy-le'
+      id: 'huarache-x-stussy-le',
+      
     }
 
     this.getCardId = this.getCardId.bind(this)
+    
+    
   }
 
   getCardId = (key) => {
@@ -27,10 +30,12 @@ class App extends React.Component{
     this.setState({id: key})
   }
 
+  
+
   render(){
     return (
       <main>  
-        <NavBar />               
+        <NavBar />           
         <Router>
           <All path="/" getCardId={this.getCardId} />
           <Clothes path="/clothes" getCardId={this.getCardId} />

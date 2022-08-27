@@ -60,9 +60,16 @@ query Query($productId: String!) {
   }
 }
 `
+const CURRENCY_QUERY = gql`
+query Currencies {
+  currencies {
+    symbol
+    label
+  }
+}
+`
 
 
 
 
-
-export { ENTRYPOINT_CATEGORY, PRODUCT_SELECTION };
+export { ENTRYPOINT_CATEGORY, PRODUCT_SELECTION, CURRENCY_QUERY };
