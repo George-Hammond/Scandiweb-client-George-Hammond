@@ -17,7 +17,7 @@ class App extends React.Component{
     super(props)
     this.state = {
       id: 'huarache-x-stussy-le',
-      cartItems: [] 
+      cartItems: ['ps-5'] 
     }
 
     this.getCardId = this.getCardId.bind(this)
@@ -55,7 +55,7 @@ class App extends React.Component{
       <main>  
         <NavBar 
         cartItems={this.state.cartItems}
-        />           
+        />                  
         <Router>
           <All 
             path="/" 

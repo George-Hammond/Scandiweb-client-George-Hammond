@@ -1,5 +1,5 @@
 import React from "react";
-import { CURRENCY_QUERY } from '../categories/cardQuery';
+import { CURRENCY_QUERY } from '../../categories/cardQuery';
 import {Query} from 'react-apollo';
 
 

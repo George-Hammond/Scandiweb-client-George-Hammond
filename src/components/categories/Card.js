@@ -35,43 +35,81 @@ class Card extends React.Component{
 
     
     render(){
-        const { addToCart, getCardId} = this.props;
+        const { addToCart, getCardId, cardData } = this.props;
         return(
-            <div className='card-wrapper' >
+            <>
+            {
+                // out of
+                !cardData.inStock ? 
+                <div className='card-wrapper out' >
+                
+                <div 
+                    className='card-img-section c-out'                                   
+                >
+                    
+                    <img
+                        
+                        src={cardData.gallery[0]} 
+                        alt={cardData.name}
+                        id="product-image"      
+                    />
+                   
+                     {
+                         
+                         this.state.isHovered ? 
+                         <GreenCart key={cardData.id} 
+                        /> : 
+                        ''
+                        
+                        }                     
+                    </div>
+                    <p id="product-name">{cardData.name}</p>
+                    <p id="product-price">
+                        {cardData.prices[0].currency.symbol}
+                        {cardData.prices[0].amount}
+                    </p>
+                        {!cardData.inStock && <p id='in-stock'>Out of Stock</p>}
+                        <p id='oos-overlay'></p>
+                </div>
+                : 
+                // In Stock
+                <div className='card-wrapper' >
                 
                 <div 
                     className='card-img-section'
                     onMouseEnter={this.handleProductMouseEnter}
                     onMouseLeave={this.handleProductMouseLeave}                
                 >
-                    <Link to={`/product/${this.props.cardData.id}`}>
+                    <Link to={`/product/${cardData.id}`}>
                     <img
                         onClick={getCardId}
-                        src={this.props.cardData.gallery[0]} 
-                        alt={this.props.cardData.name}
+                        src={cardData.gallery[0]} 
+                        alt={cardData.name}
                         id="product-image"      
                     />
                    </Link>
                      {
-
-                        this.state.isHovered ? 
-                        <GreenCart key={this.props.cardData.id} 
-                        addToCart={()=>addToCart(this.props.cardData.id)} 
+                         
+                         this.state.isHovered ? 
+                         <GreenCart key={cardData.id} 
+                        addToCart={()=>addToCart(cardData.id)} 
                         /> : 
                         ''
-
+                        
                     }                     
                 </div>
-                <p id="product-name">{this.props.cardData.name}</p>
+                <p id="product-name">{cardData.name}</p>
                 <p id="product-price">
-                    {this.props.cardData.prices[0].currency.symbol}
-                    {this.props.cardData.prices[0].amount}
-                </p>
+                    {cardData.prices[0].currency.symbol}
+                    {cardData.prices[0].amount}
+                </p>                    
             </div>
+            }
+            </>
         )
     }
 }
 
 export default Card;
 
-//this.props.cardData.products[0].name
+//cardData.products[0].name
