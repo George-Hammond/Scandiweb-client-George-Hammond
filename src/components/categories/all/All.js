@@ -12,7 +12,8 @@ const bigTitle = {
 }
 class All extends React.Component{
     render(){
-        const {getCardId} = this.props;
+        const {getCardId, addToCart} = this.props;
+        
         return (
            <div className="appear disapper">
            <Query query={ENTRYPOINT_CATEGORY} variables={{input: bigTitle}} >
@@ -39,7 +40,8 @@ class All extends React.Component{
                                 data.category.products.map(cardData => (                                    
                                   <Card key={cardData.id} 
                                   cardData={cardData} 
-                                  onClick={()=>getCardId(cardData.id)} 
+                                  getCardId={()=>getCardId(cardData.id)}
+                                  addToCart={()=>addToCart(cardData.id)} 
                                   />
                                 ))
                                                     

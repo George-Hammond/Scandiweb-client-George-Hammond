@@ -16,8 +16,10 @@ class CurrencyChange extends React.Component{
 
                             return(
                                 data.currencies.map(item => {
-                                    return <p key={item.labe}><span id="c-symbol">{item.symbol}</span>
+                                    return (
+                                    <p key={item.label}><span id="c-symbol">{item.symbol}</span>
                                     <span id="c-label">{item.label}</span></p>
+                                    )
                                 })
                             )
                         }

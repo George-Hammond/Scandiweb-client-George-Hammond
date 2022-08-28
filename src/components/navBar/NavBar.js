@@ -33,7 +33,8 @@ class NavBar extends React.Component{
         console.log(this.state.currencyAppear)
       }
     render(){
-        let numbers = 0;
+        
+        const { cartItems } = this.props;
         return(
             <nav>
                 <div className="main-nav-container">
@@ -51,15 +52,21 @@ class NavBar extends React.Component{
                         <Query query={CURRENCY_QUERY}>
                             {
                                 ({loading, error, data}) => {
-                                    loading && <div>loading...</div>;
-                                    error && <div>Error :( {error.message}</div>
-                                    return (<p id="currency-symbol">{data.currencies[numbers].symbol}</p>)
+                                    if(loading) return <div>Loading...</div>;
+                        
+
+                                    if(error) return <div>Error: {error.message}</div>;
+
+                                    return(
+                                        <p id="currency-symbol">{data.currencies[0].symbol}</p>
+                                    )
                                 }
 
                             }
                         </Query>
                         <img src={ArrowDown} alt="more currencies" id="arrow-down" onClick={this.toggleCurrencySymbol}/>
                         <Link to="cart"><img src={Cart} alt="Cart" id="cart-logo"  /></Link>
+                        {cartItems.length > 0 ? <p id="number-in-cart">{cartItems.length}</p> : ""}
                     </div>
                 </div>
                 {this.state.currencyAppear && <CurrencyChange  />}

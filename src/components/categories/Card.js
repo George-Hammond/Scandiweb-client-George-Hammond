@@ -11,13 +11,12 @@ class Card extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            isHovered: false,
-            cartItems: []            
+            isHovered: false                       
         }
 
         this.handleProductMouseEnter = this.handleProductMouseEnter.bind(this)
         this.handleProductMouseLeave = this.handleProductMouseLeave.bind(this)
-        this.addToCart = this.addToCart.bind(this)
+        
     }
     
     //Handles event when mouse enters around a product card
@@ -34,27 +33,9 @@ class Card extends React.Component{
         })
     }
 
-    //Handles event when green cart logo is clicked
     
-    addToCart(product){
-        const { cartItems } = this.state;
-        let newCartItems= []
-        console.log(cartItems)
-        console.log(product.id)
-        
-        const isProductPresent = cartItems.find(item =>item.id === product.id);
-        if(!isProductPresent){
-            newCartItems.push(product.name);
-            this.setState({
-                cartItems: newCartItems
-            })
-        }
-        console.log(cartItems)
-        
-        
-    }
     render(){
-        
+        const { addToCart, getCardId} = this.props;
         return(
             <div className='card-wrapper' >
                 
@@ -65,7 +46,7 @@ class Card extends React.Component{
                 >
                     <Link to={`/product/${this.props.cardData.id}`}>
                     <img
-                        onClick={this.props.onClick}
+                        onClick={getCardId}
                         src={this.props.cardData.gallery[0]} 
                         alt={this.props.cardData.name}
                         id="product-image"      
@@ -75,7 +56,7 @@ class Card extends React.Component{
 
                         this.state.isHovered ? 
                         <GreenCart key={this.props.cardData.id} 
-                        addToCart={()=>this.addToCart(this.props.cardData)} 
+                        addToCart={()=>addToCart(this.props.cardData.id)} 
                         /> : 
                         ''
 

@@ -61,15 +61,38 @@ query Query($productId: String!) {
 }
 `
 const CURRENCY_QUERY = gql`
-query Currencies {
+query Query {
   currencies {
-    symbol
     label
+    symbol
+  }
+}
+`
+const CART_PRODUCT_QUERY = gql`
+query Query($productId: String!) {
+  product(id: $productId) {
+    name
+    brand
+    prices {
+      currency {
+        symbol
+      }
+      amount
+    }
+    gallery
+    attributes {
+      name
+      items {
+        displayValue
+        value
+        id
+      }
+      id
+    }
   }
 }
 `
 
 
 
-
-export { ENTRYPOINT_CATEGORY, PRODUCT_SELECTION, CURRENCY_QUERY };
+export { ENTRYPOINT_CATEGORY, PRODUCT_SELECTION, CURRENCY_QUERY, CART_PRODUCT_QUERY }

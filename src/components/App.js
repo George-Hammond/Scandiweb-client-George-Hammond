@@ -17,35 +17,70 @@ class App extends React.Component{
     super(props)
     this.state = {
       id: 'huarache-x-stussy-le',
-      
+      cartItems: [] 
     }
 
     this.getCardId = this.getCardId.bind(this)
-    
+    this.addToCart = this.addToCart.bind(this)
     
   }
 
+  //Handle setting PDP id in Routing.
   getCardId = (key) => {
     console.log(key)
     this.setState({id: key})
   }
-
+  //Handles event when green cart logo is clicked
+      
+  addToCart(key){
+    
+    const { cartItems } = this.state;
+    
+    const isProductPresent = cartItems.some(item =>item === key);
+    if(!isProductPresent){        
+        this.setState({
+            cartItems: [...cartItems, key]
+        }, ()=> console.log(`items in cart is`, this.state.cartItems))
+    }else{
+      alert('its already there')
+      console.log(cartItems)
+    }
+  
+    
+  }
   
 
   render(){
     return (
       <main>  
-        <NavBar />           
+        <NavBar 
+        cartItems={this.state.cartItems}
+        />           
         <Router>
-          <All path="/" getCardId={this.getCardId} />
-          <Clothes path="/clothes" getCardId={this.getCardId} />
-          <Tech path="/tech" getCardId={this.getCardId} />
-          <Cart path="/cart" />
-          <ProductPage path="/product/:productId" id={this.state.id} />          
+          <All 
+            path="/" 
+            getCardId={this.getCardId}
+            addToCart={this.addToCart} 
+          />
+          <Clothes 
+            path="/clothes" 
+            getCardId={this.getCardId}
+            addToCart={this.addToCart} 
+          />
+          <Tech 
+            path="/tech" 
+            getCardId={this.getCardId}
+            addToCart={this.addToCart} 
+          />
+          <Cart 
+            path="/cart"
+            cartItems={this.state.cartItems}
+          />
+          <ProductPage 
+            path="/product/:productId" 
+            id={this.state.id} 
+          />          
         </Router> 
-      
-     {/*     */}    
-      
       </main>      
     )
   }
