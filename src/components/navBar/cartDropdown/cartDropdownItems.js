@@ -1,18 +1,17 @@
 import React from "react";
 
-
-class CartDisplay extends React.Component{
+class CartDropdownItems extends React.Component{
     render(){
-        const { cartData } = this.props
+        const  { cartItems, cartData } = this.props;
         console.log(cartData)
         const attributes = cartData.attributes.length;
         const displayDescription = () =>{
             if(attributes > 2){
                 return(
                 <>
-                    <div className='cart-attributes-size-section greaterTwo'>
+                    <div className='cart-dropdown-size-section greaterTwo'>
                         <h3>{cartData.attributes[0].name}</h3>
-                        <div className='cart-attributes-size-category'>
+                        <div className='cart-dropdown-size-category'>
                             {
                             cartData.attributes[0].items.map((item) => {
                                     return <p key={item.id}>{item.displayValue}</p>
@@ -20,9 +19,9 @@ class CartDisplay extends React.Component{
                             }
                         </div>                            
                     </div>
-                    <div className='cart-attributes-size-section'>
+                    <div className='cart-dropdown-size-section'>
                         <h3>{cartData.attributes[1].name}</h3>
-                        <div className='cart-attributes-size-category'>
+                        <div className='cart-dropdown-size-category'>
                             {
                             cartData.attributes[1].items.map((item) => {
                                     return <p key={item.id}>{item.displayValue}</p>
@@ -30,9 +29,9 @@ class CartDisplay extends React.Component{
                             }
                         </div>                            
                     </div>
-                    <div className='cart-attributes-color-section'>
+                    <div className='cart-dropdown-color-section'>
                         <h3>Color:</h3>
-                        <div className='cart-attributes-colors'>
+                        <div className='cart-dropdown-colors'>
                             {
                                 cartData.attributes[0].items.map((item, index) => {
                                     return <p key={item.id} style={{backgroundColor: item.displayValue}}></p>
@@ -46,9 +45,9 @@ class CartDisplay extends React.Component{
                 if(cartData.name ==="iPhone 12 Pro"){
                     return(
                         <>
-                            <div className='cart-attributes-size-section'>
+                            <div className='cart-dropdown-size-section'>
                                 <h3>{cartData.attributes[0].name}</h3>
-                                <div className='cart-attributes-size-category'>
+                                <div className='cart-dropdown-size-category'>
                                     {
                                     cartData.attributes[0].items.map((item) => {
                                             return <p key={item.id}>{item.displayValue}</p>
@@ -56,9 +55,9 @@ class CartDisplay extends React.Component{
                                     }    
                                 </div>
                             </div>
-                            <div className='cart-attributes-color-section'>
+                            <div className='cart-dropdown-color-section'>
                                 <h3>Color:</h3>
-                                <div className='cart-attributes-colors'>
+                                <div className='cart-dropdown-colors'>
                                     {
                                         cartData.attributes[1].items.map((item, index) => {
                                             return <p key={item.id} style={{backgroundColor: item.displayValue}}></p>
@@ -71,9 +70,9 @@ class CartDisplay extends React.Component{
                 }
                 return(
                 <>
-                    <div className='cart-attributes-size-section'>
+                    <div className='cart-dropdown-size-section'>
                         <h3>{cartData.attributes[1].name}</h3>
-                        <div className='cart-attributes-size-category'>
+                        <div className='cart-dropdown-size-category'>
                             {
                             cartData.attributes[1].items.map((item) => {
                                     return <p key={item.id}>{item.displayValue}</p>
@@ -81,9 +80,9 @@ class CartDisplay extends React.Component{
                             } 
                         </div>
                     </div>
-                    <div className='cart-attributes-color-section'>
+                    <div className='cart-dropdown-color-section'>
                         <h3>Color:</h3>
-                        <div className='cart-attributes-colors'>
+                        <div className='cart-dropdown-colors'>
                             {
                                 cartData.attributes[0].items.map((item, index) => {
                                     return <p key={item.id} style={{backgroundColor: item.displayValue}}></p>
@@ -95,12 +94,12 @@ class CartDisplay extends React.Component{
                 )
             } else if(attributes > 0){
                     return(
-                        <div className='cart-attributes-size-section'>
+                        <div className='cart-dropdown-size-section'>
                             <h3>{cartData.attributes[0].name}</h3>
-                            <div className='cart-attributes-size-category'>
+                            <div className='cart-dropdown-size-category'>
                                 {
                                 cartData.attributes[0].items.map((item) => {
-                                        return <p key={item.id}>{item.value}</p>
+                                        return <p key={item.id}>{item.value}</p>                                        
                                     })
                                 }     
                             </div>
@@ -110,39 +109,17 @@ class CartDisplay extends React.Component{
                 return("")
             } 
         }
-
-        //Return
         return(
-            <>
-                <div className="cart-display-cart">
-                    <div className="cart-attributes">
-                        <h2>{cartData.brand}</h2>
-                        <h3>{cartData.name}</h3>
-                        <div className='cart-attributes-price-section'>                            
-                            <p>{cartData.prices[0].currency.symbol}{cartData.prices[0].amount}</p>
-                        </div>
-                        {
-                            displayDescription()
-                        }
-                    </div>
-                    <div className="cart-attributes-product-quantity">
-                        <div className="toggle-add">
-                            <button id='increase'>+</button>
-                            <p>1</p>
-                            <button id="decrease">-</button>
-                        </div>
-                        <div className="cart-attributes-product-quantity-image">
-                            <img src={cartData.gallery[0]} alt={cartData.name}/>
-                            <div className="toggle-img">
-                                <button id="lesser">&gt;</button>
-                                <button id="greater">&lt;</button>
-                            </div>
-                        </div>                        
-                    </div>
+            <div className="cart-dropdown">                
+                <div class>
+                    {
+                        displayDescription()
+                    }
                 </div>
-            </>
+            </div>
         )
     }
 }
 
-export default CartDisplay;
+export default CartDropdownItems;
+

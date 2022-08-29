@@ -17,7 +17,7 @@ class App extends React.Component{
     super(props)
     this.state = {
       id: 'huarache-x-stussy-le',
-      cartItems: ['ps-5'] 
+      cartItems: [] 
     }
 
     this.getCardId = this.getCardId.bind(this)

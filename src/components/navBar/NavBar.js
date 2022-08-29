@@ -106,7 +106,10 @@ class NavBar extends React.Component{
                     </div>
                 </div>
                 {this.state.currencyAppear && <CurrencyChange  />}
-                {this.state.cartAppear  && <CartDropdown toggleCart={this.toggleCart}/> }
+                {this.state.cartAppear  && <CartDropdown 
+                toggleCart={this.toggleCart}
+                cartItems={cartItems}
+                /> }
                 {this.state.cartAppear  && <div className='overlay-appear'></div>}
             </nav>
         )
