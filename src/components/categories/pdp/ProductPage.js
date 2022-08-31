@@ -9,7 +9,7 @@ import  { PRODUCT_SELECTION } from '../cardQuery';
 // }
 class ProductPage extends React.Component{
     render(){
-        const { id } = this.props;
+        const { id, addToCart } = this.props;
         return(
             <div className='product-page-section'>
                 <Query query={PRODUCT_SELECTION} variables={{"productId": `${id}` }}>
@@ -18,7 +18,7 @@ class ProductPage extends React.Component{
                             if(loading) return <div>Loading...</div>;
                             if(error) return <div>Error: {error.message}</div>
 
-                            return  <AllTogetherPDP productData={data}/> 
+                            return  <AllTogetherPDP productData={data} addToCart={()=>addToCart(id)}/> 
                         }
                     }                                  
                 </Query>

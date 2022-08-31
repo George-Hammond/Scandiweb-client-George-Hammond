@@ -16,7 +16,7 @@ class App extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      id: 'huarache-x-stussy-le',
+      id: '',
       cartItems: [] 
     }
 
@@ -27,13 +27,13 @@ class App extends React.Component{
 
   //Handle setting PDP id in Routing.
   getCardId = (key) => {
-    console.log(key)
+    // console.log(key)
     this.setState({id: key})
   }
   //Handles event when green cart logo is clicked
       
   addToCart(key){
-    
+    // console.log(key)
     const { cartItems } = this.state;
     
     const isProductPresent = cartItems.some(item =>item === key);
@@ -43,7 +43,7 @@ class App extends React.Component{
         }, ()=> console.log(`items in cart is`, this.state.cartItems))
     }else{
       alert('its already there')
-      console.log(cartItems)
+      // console.log(cartItems)
     }
   
     
@@ -78,7 +78,8 @@ class App extends React.Component{
           />
           <ProductPage 
             path="/product/:productId" 
-            id={this.state.id} 
+            id={this.state.id}
+            addToCart={this.addToCart}
           />          
         </Router> 
       </main>      

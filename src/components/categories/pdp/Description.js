@@ -2,7 +2,7 @@ import React from "react";
 
 class Description extends React.Component{
     render(){
-        const {productData} = this.props;
+        const {productData,addToCart} = this.props;
         console.log(productData)
         const attributes = productData.product.attributes.length;
         const displayDescription = () =>{
@@ -33,13 +33,13 @@ class Description extends React.Component{
                                 
                             </div>                            
                         </div>
-                        <div className='color-section'>
-                            <h3>Color:</h3>
-                            <div className='colors'>
+                        <div className='touchId-section'>
+                            <h3>{productData.product.attributes[2].name}:</h3>
+                            <div className='touchId'>
     
                                 {
-                                    productData.product.attributes[0].items.map((item, index) => {
-                                        return <p key={item.id} style={{backgroundColor: item.displayValue}}></p>
+                                    productData.product.attributes[2].items.map((item, index) => {
+                                        return <p key={item.id} >{item.displayValue}</p>
                                     })
                                 }                                                                                
                             </div>
@@ -141,7 +141,7 @@ class Description extends React.Component{
                         </p>
                     </div>
                     <div className='add-to-cart'>
-                        <button>
+                        <button onClick={addToCart}>
                             Add to cart
                         </button>
                     </div>

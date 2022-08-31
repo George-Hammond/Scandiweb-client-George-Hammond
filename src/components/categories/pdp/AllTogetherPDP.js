@@ -6,12 +6,12 @@ import Description from './Description';
 
 class AllTogetherPDP extends React.Component{
     render(){
-        const { productData } = this.props;
+        const { productData, addToCart, id } = this.props;
         return(
             <>
                 <DifferentImages productData={productData}/>
                 <LargeImage productData={productData} />
-                <Description productData={productData} />
+                <Description productData={productData} addToCart={()=>addToCart(id)} />
             </>
         )
     }

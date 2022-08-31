@@ -31,11 +31,11 @@ class CartDisplay extends React.Component{
                         </div>                            
                     </div>
                     <div className='cart-attributes-color-section'>
-                        <h3>Color:</h3>
+                        <h3>{console.log(cartData.attributes[2].name)} :</h3>
                         <div className='cart-attributes-colors'>
                             {
-                                cartData.attributes[0].items.map((item, index) => {
-                                    return <p key={item.id} style={{backgroundColor: item.displayValue}}></p>
+                                cartData.attributes[2].items.map((item, index) => {
+                                    return <p key={item.id} >{item.displayValue}</p>
                                 })
                             }                                                                                
                         </div>
