@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from '@reach/router';
+// import { Link } from '@reach/router';
+import { NavLink } from "react-router-dom"
 import '../../styles/index.css';
 import GreenBag from '../../images/green-bag.svg'
 import Cart from '../../images/cart.svg';
@@ -64,21 +65,21 @@ class NavBar extends React.Component{
                 <div className="main-nav-container">
                     <div className='category-name'>                        
                              <ul>
-                                <Link to='/'                                
+                                <NavLink to='/' activeClassName="active-link"                                
                                 onClick={this.setActive}                                
-                                >
+                                >                                  
                                     ALL
-                                </Link>
-                                <Link to='clothes'
+                                </NavLink>
+                                <NavLink to='clothes'
                                 onClick={this.setActive}                                
                                 >
                                     CLOTHES
-                                </Link >
-                                <Link to='tech'
+                                </NavLink >
+                                <NavLink to='tech'
                                 onClick={this.setActive}                                
                                 >
                                     TECH
-                                </Link >
+                                </NavLink >
                              </ul>                        
                     </div>
                     <div className='middle-logo'>
@@ -105,7 +106,7 @@ class NavBar extends React.Component{
                         {cartItems.length > 0 ? <p id="number-in-cart">{cartItems.length}</p> : ""}
                     </div>
                 </div>
-                {this.state.currencyAppear && <CurrencyChange  />}
+                {this.state.currencyAppear && <CurrencyChange toggleCurrencySymbol={this.toggleCurrencySymbol} />}
                 {this.state.cartAppear  && <CartDropdown 
                 toggleCart={this.toggleCart}
                 cartItems={cartItems}

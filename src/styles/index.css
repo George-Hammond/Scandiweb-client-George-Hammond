@@ -40,15 +40,17 @@
   }
 
   .category-name ul > a:visited{
-    color: inherit;
+    color: #1D1F22;
   }
-  .category-name ul > a:focus {
+  
+  .category-name ul > a.active {
     border-bottom: 3px solid #5ECE7B;
     color: #5ECE7B;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 120%;
+    text-decoration: none;
   }
 
   .category-name ul > a::selection {

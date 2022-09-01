@@ -5,8 +5,9 @@ import {Query} from 'react-apollo';
 
 class CurrencyChange extends React.Component{
     render(){
+        const { toggleCurrencySymbol } = this.props;
         return(
-            <div className="select-currency">
+            <div className="select-currency" onMouseLeave={toggleCurrencySymbol}>
                 <div className="currency-section">
                     <Query query={CURRENCY_QUERY}>
                     {

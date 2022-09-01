@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { Query } from "react-apollo"
 import CartDropdownItems from "./cartDropdownItems";
 import { CART_PRODUCT_QUERY } from "../../categories/cardQuery";

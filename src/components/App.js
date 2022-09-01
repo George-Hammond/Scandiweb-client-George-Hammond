@@ -8,7 +8,8 @@ import Cart from './categories/displayCart/Cart';
 // import Card from './categories/Card';
 import ProductPage from './categories/pdp/ProductPage';
 //Reach Router to route to pages
-import { Router } from '@reach/router';
+import { BrowserRouter , Route, Routes  } from 'react-router-dom';
+
 
 
 
@@ -17,7 +18,8 @@ class App extends React.Component{
     super(props)
     this.state = {
       id: '',
-      cartItems: [] 
+      cartItems: [],
+      navActive: false
     }
 
     this.getCardId = this.getCardId.bind(this)
@@ -52,37 +54,48 @@ class App extends React.Component{
 
   render(){
     return (
-      <main>  
-        <NavBar 
-        cartItems={this.state.cartItems}
-        />                  
-        <Router>
+    <BrowserRouter>
+      <NavBar 
+      cartItems={this.state.cartItems}
+      />
+      <Routes>
+        <Route path="/" element={
           <All 
-            path="/" 
             getCardId={this.getCardId}
             addToCart={this.addToCart} 
           />
+        } />        
+        
+        <Route path="/clothes" element={
           <Clothes 
-            path="/clothes" 
             getCardId={this.getCardId}
             addToCart={this.addToCart} 
           />
-          <Tech 
-            path="/tech" 
+        } />        
+        
+        <Route path="/tech" element={
+          <Tech
             getCardId={this.getCardId}
             addToCart={this.addToCart} 
           />
-          <Cart 
-            path="/cart"
+        } />     
+          
+        <Route path="/cart" element={
+          <Cart          
             cartItems={this.state.cartItems}
           />
-          <ProductPage 
-            path="/product/:productId" 
+        } />        
+        
+        <Route path="/product/:productId" element={
+          <ProductPage          
             id={this.state.id}
             addToCart={this.addToCart}
-          />          
-        </Router> 
-      </main>      
+          />
+        } />
+        
+      </Routes>                  
+    </BrowserRouter> 
+            
     )
   }
 }
