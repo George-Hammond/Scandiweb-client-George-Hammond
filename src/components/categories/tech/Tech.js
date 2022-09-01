@@ -11,7 +11,7 @@ const bigTitle = {
 
 class Tech extends React.Component{
     render(){
-        const { getCardId, addToCart } = this.props;
+        const { getCardId, addToCart, currencyIndex } = this.props;
         return (
         <>
             <Query query={ENTRYPOINT_CATEGORY} variables={{input: bigTitle}} >
@@ -38,6 +38,7 @@ class Tech extends React.Component{
                                   cardData={cardData} 
                                   getCardId={()=>getCardId(cardData.id)}
                                   addToCart={()=>addToCart(cardData.id)}
+                                  currencyIndex={currencyIndex}
                                   />
                                 ))
                                                     

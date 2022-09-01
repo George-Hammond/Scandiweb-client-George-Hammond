@@ -5,7 +5,7 @@ import {Query} from 'react-apollo';
 
 class CurrencyChange extends React.Component{
     render(){
-        const { toggleCurrencySymbol } = this.props;
+        const { toggleCurrencySymbol, getCurrencyIndex } = this.props;
         return(
             <div className="select-currency" onMouseLeave={toggleCurrencySymbol}>
                 <div className="currency-section">
@@ -18,7 +18,10 @@ class CurrencyChange extends React.Component{
                             return(
                                 data.currencies.map(item => {
                                     return (
-                                    <p key={item.label}><span id="c-symbol">{item.symbol}</span>
+                                    <p 
+                                    key={console.log(item)}
+                                    onClick={()=>getCurrencyIndex(item.label)}
+                                    ><span id="c-symbol">{item.symbol}</span>
                                     <span id="c-label">{item.label}</span></p>
                                     )
                                 })

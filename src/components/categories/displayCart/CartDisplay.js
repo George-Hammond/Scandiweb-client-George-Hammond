@@ -3,7 +3,7 @@ import React from "react";
 
 class CartDisplay extends React.Component{
     render(){
-        const { cartData } = this.props
+        const { cartData, currencyIndex } = this.props
         console.log(cartData)
         const attributes = cartData.attributes.length;
         const displayDescription = () =>{
@@ -119,7 +119,7 @@ class CartDisplay extends React.Component{
                         <h2>{cartData.brand}</h2>
                         <h3>{cartData.name}</h3>
                         <div className='cart-attributes-price-section'>                            
-                            <p>{cartData.prices[0].currency.symbol}{cartData.prices[0].amount}</p>
+                            <p>{cartData.prices[currencyIndex].currency.symbol}{cartData.prices[currencyIndex].amount}</p>
                         </div>
                         {
                             displayDescription()

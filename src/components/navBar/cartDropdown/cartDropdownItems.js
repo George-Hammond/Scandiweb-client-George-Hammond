@@ -2,8 +2,8 @@ import React from "react";
 
 class CartDropdownItems extends React.Component{
     render(){
-        const  { cartData } = this.props;
-        console.log(cartData)
+        const  { cartData, currencyIndex } = this.props;
+        
         const attributesLength = cartData.attributes.length;
         const displayDescription = () =>{
             if(attributesLength > 2){
@@ -105,7 +105,7 @@ class CartDropdownItems extends React.Component{
                     <h2>{cartData.brand}</h2>
                     <h3>{cartData.name}</h3>
                     <div className='cart-attributes-price-section'>                            
-                        <p>{cartData.prices[0].currency.symbol}{cartData.prices[0].amount}</p>
+                        <p>{cartData.prices[currencyIndex].currency.symbol}{cartData.prices[currencyIndex].amount}</p>
                     </div>
                     {
                         displayDescription()
@@ -128,3 +128,4 @@ class CartDropdownItems extends React.Component{
 
 export default CartDropdownItems;
 
+// 

@@ -6,8 +6,8 @@ import { CART_PRODUCT_QUERY } from "../../categories/cardQuery";
 
 class CartDropdown extends React.Component{
     render(){
-        const { toggleCart } = this.props;
-        const { cartItems } = this.props;
+        
+        const { toggleCart, cartItems, currencyIndex } = this.props;
         const listItems = cartItems.map(cartItem =>     
             <Query query={CART_PRODUCT_QUERY} variables ={{"productId": `${cartItem}`}}>
                 {                   
@@ -22,6 +22,7 @@ class CartDropdown extends React.Component{
                                 key="0"
                                 cartItems={cartItems}
                                 cartData={data.product}
+                                currencyIndex={currencyIndex}
                             />
                         )
                     }

@@ -2,8 +2,8 @@ import React from "react";
 
 class Description extends React.Component{
     render(){
-        const {productData,addToCart} = this.props;
-        console.log(productData)
+        const {productData,addToCart, currencyIndex} = this.props;
+        
         const attributes = productData.product.attributes.length;
         const displayDescription = () =>{
                 if(attributes > 2){
@@ -136,8 +136,8 @@ class Description extends React.Component{
                     </>                    
                     <div className='price-section'>
                         <h3>Price:</h3>
-                        <p>{productData.product.prices[0].currency.symbol}
-                        {productData.product.prices[0].amount}
+                        <p>{productData.product.prices[currencyIndex].currency.symbol}
+                        {productData.product.prices[currencyIndex].amount}
                         </p>
                     </div>
                     <div className='add-to-cart'>

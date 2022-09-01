@@ -59,7 +59,7 @@ class NavBar extends React.Component{
       }
     render(){
         
-        const { cartItems } = this.props;
+        const { cartItems, getCurrencyIndex, currencyIndex } = this.props;
         return(
             <nav>
                 <div className="main-nav-container">
@@ -95,7 +95,7 @@ class NavBar extends React.Component{
                                     if(error) return <div>Error: {error.message}</div>;
 
                                     return(
-                                        <p id="currency-symbol">{data.currencies[0].symbol}</p>
+                                        <p id="currency-symbol">{data.currencies[currencyIndex].symbol}</p>
                                     )
                                 }
 
@@ -106,10 +106,15 @@ class NavBar extends React.Component{
                         {cartItems.length > 0 ? <p id="number-in-cart">{cartItems.length}</p> : ""}
                     </div>
                 </div>
-                {this.state.currencyAppear && <CurrencyChange toggleCurrencySymbol={this.toggleCurrencySymbol} />}
+                {this.state.currencyAppear && 
+                <CurrencyChange 
+                toggleCurrencySymbol={this.toggleCurrencySymbol} 
+                getCurrencyIndex={getCurrencyIndex}
+                />}
                 {this.state.cartAppear  && <CartDropdown 
                 toggleCart={this.toggleCart}
                 cartItems={cartItems}
+                currencyIndex={currencyIndex}
                 /> }
                 {this.state.cartAppear  && <div className='overlay-appear'></div>}
             </nav>

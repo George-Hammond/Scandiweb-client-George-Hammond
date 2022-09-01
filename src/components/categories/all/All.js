@@ -12,7 +12,7 @@ const bigTitle = {
 }
 class All extends React.Component{
     render(){
-        const {getCardId, addToCart} = this.props;
+        const {getCardId, addToCart, currencyIndex} = this.props;
         
         return (
            <div className="appear disapper">
@@ -41,7 +41,8 @@ class All extends React.Component{
                                   <Card key={cardData.id} 
                                   cardData={cardData} 
                                   getCardId={()=>getCardId(cardData.id)}
-                                  addToCart={()=>addToCart(cardData.id)} 
+                                  addToCart={()=>addToCart(cardData.id)}
+                                  currencyIndex={currencyIndex} 
                                   />
                                 ))
                                                     

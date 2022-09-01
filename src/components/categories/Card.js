@@ -35,7 +35,7 @@ class Card extends React.Component{
 
     
     render(){
-        const { addToCart, getCardId, cardData } = this.props;
+        const { addToCart, getCardId, cardData,currencyIndex } = this.props;
         return(
             <>
             {
@@ -65,8 +65,8 @@ class Card extends React.Component{
                     </div>
                     <p id="product-name">{cardData.name}</p>
                     <p id="product-price">
-                        {cardData.prices[0].currency.symbol}
-                        {cardData.prices[0].amount}
+                        {cardData.prices[currencyIndex].currency.symbol}
+                        {cardData.prices[currencyIndex].amount}
                     </p>
                         {!cardData.inStock && <p id='in-stock'>Out of Stock</p>}
                         <p id='oos-overlay'></p>
@@ -100,8 +100,8 @@ class Card extends React.Component{
                 </div>
                 <p id="product-name">{cardData.name}</p>
                 <p id="product-price">
-                    {cardData.prices[0].currency.symbol}
-                    {cardData.prices[0].amount}
+                    {cardData.prices[currencyIndex].currency.symbol}
+                    {cardData.prices[currencyIndex].amount}
                 </p>                    
             </div>
             }

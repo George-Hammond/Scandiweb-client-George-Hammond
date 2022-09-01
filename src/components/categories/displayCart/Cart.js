@@ -7,7 +7,7 @@ import { CART_PRODUCT_QUERY } from "../cardQuery";
 class Cart extends React.Component{
     
     render(){
-        const { cartItems } = this.props;
+        const { cartItems, currencyIndex } = this.props;
         // console.log(cartItems[0])
         const listItems = cartItems.map(cartItem =>     
             <Query query={CART_PRODUCT_QUERY} variables ={{"productId": `${cartItem}`}}>
@@ -22,6 +22,7 @@ class Cart extends React.Component{
                         return( <CartDisplay
                                 key="0" 
                                 cartData={data.product}
+                                currencyIndex={currencyIndex}
                             />
                         )
                     }
