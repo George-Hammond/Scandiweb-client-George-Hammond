@@ -7,7 +7,7 @@ import { CART_PRODUCT_QUERY } from "../../categories/cardQuery";
 class CartDropdown extends React.Component{
     render(){
         
-        const { toggleCart, cartItems, currencyIndex } = this.props;
+        const { toggleCart, cartItems, currencyIndex, sumProductPrice} = this.props;
         const listItems = cartItems.map(cartItem =>     
             <Query query={CART_PRODUCT_QUERY} variables ={{"productId": `${cartItem}`}}>
                 {                   
@@ -49,7 +49,11 @@ class CartDropdown extends React.Component{
                 </p>
                 {
                     displayCartItem()
-                }                
+                }
+                <div className="drop-down-amount">
+                    <p id="drop-down-total">Total</p>
+                    <p id="drop-down-total-amount">${sumProductPrice}</p>
+                </div>                
                 <div className="cart-dropdown-btn">
                     <Link to="cart"><button id="view-bag">View Bag</button></Link>
                     <button id="check-out">Check Out</button>

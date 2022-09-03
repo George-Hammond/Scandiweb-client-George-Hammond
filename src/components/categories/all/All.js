@@ -41,7 +41,7 @@ class All extends React.Component{
                                   <Card key={cardData.id} 
                                   cardData={cardData} 
                                   getCardId={()=>getCardId(cardData.id)}
-                                  addToCart={()=>addToCart(cardData.id)}
+                                  addToCart={()=>addToCart(cardData.id,cardData.prices[currencyIndex].amount)}
                                   currencyIndex={currencyIndex} 
                                   />
                                 ))

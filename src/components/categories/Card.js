@@ -92,7 +92,7 @@ class Card extends React.Component{
                          
                          this.state.isHovered ? 
                          <GreenCart key={cardData.id} 
-                        addToCart={()=>addToCart(cardData.id)} 
+                        addToCart={()=>addToCart(cardData.id,cardData.prices[currencyIndex].amount)} 
                         /> : 
                         ''
                         

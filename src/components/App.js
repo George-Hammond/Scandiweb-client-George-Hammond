@@ -20,61 +20,63 @@ class App extends React.Component{
       id: '',
       cartItems: [],
       navActive: false,
-      currencyIndex: 0
+      currencyIndex: 0,
+      productItemAmount: [],
+      sumProductPrice: 0,
+      tax: 0
     }
 
     this.getCardId = this.getCardId.bind(this)
     this.addToCart = this.addToCart.bind(this)
     this.getCurrencyIndex = this.getCurrencyIndex.bind(this)
-    
+    // this.sumTotal = this.sumTotal.bind(this)
   }
 
   //Handle setting PDP id in Routing.
-  getCardId = (key) => {
-    // console.log(key)
+  getCardId = (key) => {    
     this.setState({id: key})
   }
+
   //Handles event when green cart logo is clicked
-      
-  addToCart(key){
-    // console.log(key)
-    const { cartItems } = this.state;
-    
+  addToCart(key,amount){   
+    const { cartItems, productItemAmount } = this.state;
     const isProductPresent = cartItems.some(item =>item === key);
     if(!isProductPresent){        
         this.setState({
-            cartItems: [...cartItems, key]
+          cartItems: [...cartItems, key]
         }, ()=> console.log(`items in cart is`, this.state.cartItems))
     }else{
-      alert('its already there')
-      // console.log(cartItems)
-    } 
-    
-  }
-  // Handle currency change
-  getCurrencyIndex(key){
-    if(key === "USD"){
-      this.setState({
-        currencyIndex: 0
-      })
-    } else if(key === "GBP"){
-      this.setState({
-        currencyIndex: 1
-      })
-    }else if(key === "AUD"){
-      this.setState({
-        currencyIndex: 2
-      })
-    }else if(key === "JPY"){
-      this.setState({
-        currencyIndex: 3
-      })
-    }else if(key === "RUB"){
-      this.setState({
-        currencyIndex: 4
-      })
+      alert('its already there')      
     }
+
+    this.setState({
+      productItemAmount: [...productItemAmount, amount]
+    },()=> console.log(this.state.productItemAmount))    
+    
+    let productSum = productItemAmount.reduce((prevValue,currValue)=>prevValue + currValue, amount).toFixed(2)
+    console.log(`the sum is: ${productSum}`)
+    let calculateTax = productSum * 0.21;
+    console.log(`the tax is: ${calculateTax.toFixed(2)}`)
+    this.setState({
+      sumProductPrice: productSum,
+      //this calculates the tax on the product
+      tax: calculateTax
+    })
+    
+   
   }
+
+    // Handle currency change
+  getCurrencyIndex(key){
+    if(key === "USD") this.setState({currencyIndex: 0})
+    if(key === "GBP") this.setState({currencyIndex: 1})
+    if(key === "AUD") this.setState({currencyIndex: 2})
+    if(key === "JPY") this.setState({currencyIndex: 3})
+    if(key === "RUB") this.setState({currencyIndex: 4})    
+  }
+
+  // Handle total summation in cart
+  
 
   render(){
     return (
@@ -83,6 +85,7 @@ class App extends React.Component{
       cartItems={this.state.cartItems}
       getCurrencyIndex={this.getCurrencyIndex}
       currencyIndex={this.state.currencyIndex}
+      sumProductPrice={this.state.sumProductPrice}
       />
       <Routes>
         <Route path="/" element={
@@ -113,6 +116,9 @@ class App extends React.Component{
           <Cart          
             cartItems={this.state.cartItems}
             currencyIndex={this.state.currencyIndex}
+            sumProductPrice={this.state.sumProductPrice}
+            tax={this.state.tax}
+            productItemAmount={this.state.productItemAmount}
           />
         } />        
         

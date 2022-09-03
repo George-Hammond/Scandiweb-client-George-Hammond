@@ -2,28 +2,28 @@ import React from "react";
 // import Sweater from "../../../images/sweater.svg";
 import CartDisplay from "./CartDisplay";
 import { Query } from "react-apollo";
-import { CART_PRODUCT_QUERY } from "../cardQuery";
+import { CART_PRODUCT_QUERY,CURRENCY_QUERY } from "../cardQuery";
 
 class Cart extends React.Component{
     
     render(){
-        const { cartItems, currencyIndex } = this.props;
-        // console.log(cartItems[0])
+        const { cartItems, currencyIndex, tax, sumProductPrice, productItemAmount } = this.props;
+        
         const listItems = cartItems.map(cartItem =>     
             <Query query={CART_PRODUCT_QUERY} variables ={{"productId": `${cartItem}`}}>
                 {                   
-                    ({loading, error, data}) => {
-                        console.log("we are here 1")
-                        if(loading) return "";
-                        console.log("we are here 2")
-                        if(error) return `Error: ${error.message}`;
-                        console.log("we are here 3")
-                            console.log(data)                           
-                        return( <CartDisplay
-                                key="0" 
-                                cartData={data.product}
-                                currencyIndex={currencyIndex}
-                            />
+                    ({loading, error, data}) => {                        
+                        if(loading) return "";                       
+                        if(error) return `Error: ${error.message}`;                        
+                                                    
+                        return( 
+                        <>
+                        <CartDisplay
+                            key="0" 
+                            cartData={data.product}
+                            currencyIndex={currencyIndex}
+                        />                        
+                        </>
                         )
                     }
 
@@ -41,12 +41,25 @@ class Cart extends React.Component{
                        {
                         displayCartItem()                            
                        }
-                    <div className="card-attributes-bill">
-                        <p>Tax 21%:  <span id="card-attributes-tax"> $42.00</span></p>
-                        <p>Quantity: <span> 3</span></p>
-                        <p >Total: <span id="card-attributes-bill-total">$200.00</span></p>
-                        <button>Order</button>
-                    </div>  
+                <Query query={CURRENCY_QUERY} >
+                    {
+                        ({loading, error, data})=> {
+
+                            if(loading) return "";
+                            if(error) return `Error: ${error.message}`;
+                            
+                            return (
+                                <div className="card-attributes-bill">
+                                    <p>Tax 21%:  <span id="card-attributes-tax">{data.currencies[currencyIndex].symbol}{tax}</span></p>
+                                    <p>Quantity: <span> {productItemAmount.length}</span></p>
+                                    <p >Total: <span id="card-attributes-bill-total">{data.currencies[currencyIndex].symbol}{sumProductPrice}</span></p>
+                                    <button>Order</button>
+                                </div>
+                            )
+                        }
+                    }
+                </Query>
+                      
                 </>
                 )
             }else{

@@ -7,6 +7,7 @@ import Description from './Description';
 class AllTogetherPDP extends React.Component{
     render(){
         const { productData, addToCart, id, currencyIndex } = this.props;
+        console.log(productData)
         return(
             <>
                 <DifferentImages productData={productData}/>

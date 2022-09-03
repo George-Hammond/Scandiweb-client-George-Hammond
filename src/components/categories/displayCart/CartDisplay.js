@@ -31,7 +31,7 @@ class CartDisplay extends React.Component{
                         </div>                            
                     </div>
                     <div className='cart-attributes-color-section'>
-                        <h3>{console.log(cartData.attributes[2].name)} :</h3>
+                        <h3>{cartData.attributes[2].name} :</h3>
                         <div className='cart-attributes-colors'>
                             {
                                 cartData.attributes[2].items.map((item, index) => {
@@ -68,11 +68,36 @@ class CartDisplay extends React.Component{
                             </div>
                         </>
                         ) 
+                } else if(cartData.name === "Nike Air Huarache Le"){
+                    return(
+                    <>
+                        <div className='cart-attributes-size-section'>
+                            <h3>{console.log(cartData.attributes)}</h3>
+                            <div className='cart-attributes-size-category'>
+                                {
+                                cartData.attributes[1].items.map((item) => {
+                                        return <p key={item.id}>{item.displayValue}</p>
+                                    })
+                                } 
+                            </div>
+                        </div>
+                        <div className='cart-attributes-color-section'>
+                            <h3>Color:</h3>
+                            <div className='cart-attributes-colors'>
+                                {
+                                    cartData.attributes[0].items.map((item, index) => {
+                                        return <p key={item.id} style={{backgroundColor: item.displayValue}}></p>
+                                    })
+                                }                                                                                
+                            </div>
+                        </div>
+                    </>
+                    )
                 }
                 return(
                 <>
                     <div className='cart-attributes-size-section'>
-                        <h3>{cartData.attributes[1].name}</h3>
+                        <h3>{console.log(cartData.attributes)}</h3>
                         <div className='cart-attributes-size-category'>
                             {
                             cartData.attributes[1].items.map((item) => {

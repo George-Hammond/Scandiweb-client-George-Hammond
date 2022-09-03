@@ -59,13 +59,13 @@ class NavBar extends React.Component{
       }
     render(){
         
-        const { cartItems, getCurrencyIndex, currencyIndex } = this.props;
+        const { cartItems, getCurrencyIndex, currencyIndex,sumProductPrice } = this.props;
         return(
             <nav>
                 <div className="main-nav-container">
                     <div className='category-name'>                        
                              <ul>
-                                <NavLink to='/' activeClassName="active-link"                                
+                                <NavLink to='/'                               
                                 onClick={this.setActive}                                
                                 >                                  
                                     ALL
@@ -115,6 +115,7 @@ class NavBar extends React.Component{
                 toggleCart={this.toggleCart}
                 cartItems={cartItems}
                 currencyIndex={currencyIndex}
+                sumProductPrice={sumProductPrice}
                 /> }
                 {this.state.cartAppear  && <div className='overlay-appear'></div>}
             </nav>

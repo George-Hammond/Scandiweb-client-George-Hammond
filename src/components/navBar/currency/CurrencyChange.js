@@ -19,7 +19,7 @@ class CurrencyChange extends React.Component{
                                 data.currencies.map(item => {
                                     return (
                                     <p 
-                                    key={console.log(item)}
+                                    key={item.symbol}
                                     onClick={()=>getCurrencyIndex(item.label)}
                                     ><span id="c-symbol">{item.symbol}</span>
                                     <span id="c-label">{item.label}</span></p>

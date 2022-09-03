@@ -30,13 +30,13 @@ class Clothes extends React.Component{
                             if(loading) return <div>Loading...</div>;
 
                             if(error) return <div>Error: {error.message}</div>;
-                            
+                            console.log(data.category.products)
                             return(    
-                                data.category.products.map(cardData => (
+                                data.category.products.map((cardData, index)=> (
                                   <Card key={cardData.id} 
                                   cardData={cardData} 
                                   getCardId={()=>getCardId(cardData.id)}
-                                  addToCart={()=>addToCart(cardData.id)}
+                                  addToCart={()=>addToCart(cardData.id, data.category.products[index].prices[currencyIndex].amount)}
                                   currencyIndex={currencyIndex}
                                   />
                                 ))
